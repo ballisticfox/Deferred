@@ -50,7 +50,8 @@ namespace Deferred
         {
             if (unifiedCameraMode == null)
             {
-                unifiedCameraMode = SystemInfo.graphicsDeviceVersion.Contains("Direct3D");
+                // Same test FlightCamera uses to disable Camera 01, so we always agree with it
+                unifiedCameraMode = GameSettings.GraphicsVersion == GameSettings.GraphicsType.D3D11;
             }
             return unifiedCameraMode.Value;
         }
